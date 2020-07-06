@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>{title} | VIP-WF.RU</title>
+	<meta content="WYSIWYG Web Builder 14 - http://www.wysiwygwebbuilder.com" name="generator">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="keywords" content="{keywords}"> 
+	<meta name="description" content="{mdesc}">	{meta}	<link href="/style.min.css" rel="stylesheet"> 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>    <script src="/sript.js"></script>	<script src="/collapse.min.js"></script>
+	<script>
+	$(document).ready(function() {			$('.hjs').hide();
+	           $("a[href*='#header']").click(function(event) {
+	               event.preventDefault();
+	               $('html, body').stop().animate({
+	                   scrollTop: $('#wb_header').offset().top
+	               }, 600, 'easeOutCirc');
+	           });
+	           $(document).on('click', '.ThemeableMenu1-navbar-collapse.in', function(e) {
+	               if ($(e.target).is('a') && ($(e.target).attr('class') != 'dropdown-toggle')) {
+	                   $(this).collapse('hide');
+	               }
+	           });
+	           function resized() {
+	               var cw = $('.image').children('img').width();
+	               $('.image').css({'height':cw+'px'});
+	           }
+	           $( window ).resize(function() {
+	             resized();
+	           });
+	           resized();
+
+	       });
+	</script>
+</head>
+<body>
+	<div id="wb_header">
+		<div id="header">
+			<div class="row">
+				<div class="col-1">
+					<div id="wb_Breadcrumb1" style="display:inline-block;width:100%;z-index:0;vertical-align:top;">
+						<ul id="Breadcrumb1">
+							<li>
+								<a href="/"><h1 style="color:#FFF">Vip-WF - Пин коды для игры WarFace</h1></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-2">
+					<div id="wb_ThemeableMenu1" style="display:inline-block;width:100%;z-index:1001;">
+						<div class="ThemeableMenu1" id="ThemeableMenu1" style="width:100%;height:auto !important;">
+							<div class="container">
+								<div class="navbar-header">
+									<button class="navbar-toggle" data-target=".ThemeableMenu1-navbar-collapse" data-toggle="collapse" type="button"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+								</div>
+								<div class="ThemeableMenu1-navbar-collapse collapse">
+									<ul class="nav navbar-nav">
+										<li class="">
+											<a href="/">Главная</a>
+										</li>
+										<li class="">
+											<a href="/catalog/">Каталог</a>
+										</li>
+										<li class="">
+											<a href="javascript:showBuyBox();">Корзина (<text id="cardsum"></text>)</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="wb_productsPhotoGrid">
+		<div id="productsPhotoGrid">
+			<div class="row">
+				<div class="col-1">
+					<div id="wb_products" style="display:inline-block;width:100%;z-index:2;">
+						{content}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>		<!-- Тут лежат боксы. Если ты это читаешь, то тебе явно пригодится эта информация-->	<div id="err-bck" ></div>    <div id="err">        <p>Внимание! Сервер выдал ошибку №<text>23</text>! Обновите страницу. В случае повторной ошибки обратитесь к администрации по адресу <a href="mailto:contact@vip-wf.ru">contact@vip-wf.ru</a>.</p>        <a class="reload" href="javascript:window.location.reload()">Обновить</a>    </div>	<div id="buyw" onclick="cardbck(this);">		<div id="CardBox">			<div id="wb_Divider4">				<div id="Divider4">					<hr class="DividerLine">					<div id="wb_Heading2">						<h2 id="CardBoxName">Корзина</h2>					</div>					<hr class="DividerLine">				</div><a class="close" href="javascript:void(0)" onclick="hideBuyBox();">✖</a>			</div>			<div id="CardProducts">			</div>			<div id="typeOfPay" >			<!--				<a class="type" href="javascript:void(0)" onclick="payss(1, this);">					<img alt="" src="https://vip-wf.ru/icons/yandex.png" title="">					<p class="name">Яндекс Деньги (без комиссии)</p>				</a>-->				<a class="type" href="javascript:void(0)" onclick="payss(4, this);">					<img alt="" src="https://vip-wf.ru/icons/qiwi.png" title="">					<p class="name">QIWI (без комиссии)</p>				</a>				<a class="type" href="javascript:void(0)" onclick="payss(3, this);">					<img alt="" src="https://vip-wf.ru/icons/wm.png" title="">					<p class="name">WebMoney (без комиссии)</p>				</a>				<a class="type" href="javascript:void(0)" onclick="payss(4, this);">					<img alt="" src="https://vip-wf.ru/icons/vm.png" title="">					<p class="name">Visa/MasterCard/МИР</p>				</a>			</div>            <div id="waitingforpay">                <iframe></iframe>            </div>			<div id="cardNext">				<div class="email">					<p>После оплаты, на ваш E-Mail будет отправлена копия ключа.</p><input id="email" onchange="validateEmail(this);" oninput="validateEmail(this);" placeholder="Введите Email">				</div>				<div class="buy">					<a id="to_card" class="to_card poff" href="#">					<div class="cost">						0 руб.					</div>					<div class="to_card_b poff">						Оплатить					</div></a>				</div>			</div>		</div>	</div>	<!-- Тут закончились боксы-->
+	<div id="wb_Footer">
+		<div id="Footer">
+			<div class="row">
+				<div class="col-1">
+					<div id="wb_Text9">
+						<span style="color:#000000;font-family:Arial;font-size:16px;"><br></span><span style="color:#FFFFFF;font-family:Arial;font-size:16px;">Copyright © all rights reserved, 2019. Powered by ie23s. Made with WYSIWYG Web Builder.</span><span style="color:#000000;font-family:Arial;font-size:16px;"><br></span>
+					</div>
+				</div>
+			</div>
+		</div>					<!--LiveInternet counter--><script type="text/javascript">
+document.write("<a style=\"display:inline-block;position: absolute;top: calc(50% - 16px);right: 10px;\" href='//www.liveinternet.ru/click' "+
+"target=_blank><img src='//counter.yadro.ru/hit?t14.6;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";h"+escape(document.title.substring(0,150))+";"+Math.random()+
+"' alt='' title='LiveInternet: показано число просмотров за 24"+
+" часа, посетителей за 24 часа и за сегодня' "+
+"border='0' width='88' height='31'><\/a>")
+</script><!--/LiveInternet-->
+	</div>
+</body>
+</html>
